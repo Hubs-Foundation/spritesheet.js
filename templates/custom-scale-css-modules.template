@@ -1,0 +1,9 @@
+{{#customCssFiles}}
+:local(.{{{cssName}}}) {
+    width: {{cssWidth}}px;
+    height: {{cssHeight}}px;
+    background: url("{{{spritesheetName}}}.png") -{{cssBackgroundPositionX}}px -{{cssBackgroundPositionY}}px;
+	background-size: {{cssBackgroundWidth}}px {{cssBackgroundHeight}}px;
+}
+
+{{/customCssFiles}}

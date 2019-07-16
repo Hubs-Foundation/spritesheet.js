@@ -21,7 +21,8 @@ var FORMATS = {
   'cocos2d': {template: 'cocos2d.template', extension: 'plist', trim: false},
   'cocos2d-v3': {template: 'cocos2d-v3.template', extension: 'plist', trim: false},
   'css': {template: 'css.template', extension: 'css', trim: false},
-  'css-modules': {template: 'css-modules.template', extension: 'css', trim: false}
+  'css-modules': {template: 'css-modules.template', extension: 'css', trim: false},
+  'custom-scale-css-modules': {template: 'custom-scale-css-modules.template', extension: 'css', trim: false}
 };
 
 if (!module.parent) {
@@ -94,6 +95,17 @@ if (!module.parent) {
     .options('height', {
       describe: 'height for binpacking',
       default: undefined
+    })
+    .options('customScaleMatch', {
+      describe: 'when generating css spritesheets, scale sprites whose name startsWith this string'
+    })
+    .options('customHeight', {
+      describe: 'height of matching sprites',
+      default: 0
+    })
+    .options('customWidth', {
+      describe: 'width of matching sprites',
+      default: 0
     })
     .options('padding', {
       describe: 'padding between images in spritesheet',
@@ -175,6 +187,8 @@ function generate(files, options, callback) {
   options.algorithm = options.hasOwnProperty('algorithm') ? options.algorithm : 'growing-binpacking';
   options.sort = options.hasOwnProperty('sort') ? options.sort : 'maxside';
   options.padding = options.hasOwnProperty('padding') ? parseInt(options.padding, 10) : 0;
+  options.customHeight = options.hasOwnProperty('customHeight') ? parseInt(options.customHeight, 10) : 0;
+  options.customWidth = options.hasOwnProperty('customWidth') ? parseInt(options.customWidth, 10) : 0;
   options.prefix = options.hasOwnProperty('prefix') ? options.prefix : '';
   options.divisibleByTwo = options.hasOwnProperty('divisibleByTwo') ? options.divisibleByTwo : false;
   options.cssOrder = options.hasOwnProperty('cssOrder') ? options.cssOrder : null;
