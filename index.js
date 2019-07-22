@@ -96,17 +96,6 @@ if (!module.parent) {
       describe: 'height for binpacking',
       default: undefined
     })
-    .options('customScaleMatch', {
-      describe: 'when generating css spritesheets, scale sprites whose name startsWith this string'
-    })
-    .options('customHeight', {
-      describe: 'height of matching sprites',
-      default: 0
-    })
-    .options('customWidth', {
-      describe: 'width of matching sprites',
-      default: 0
-    })
     .options('padding', {
       describe: 'padding between images in spritesheet',
       default: 0
@@ -123,6 +112,17 @@ if (!module.parent) {
     .options('cssOrder', {
       describe: 'specify the exact order of generated css class names',
       default: ''
+    })
+    .options('hubsFlag', {
+      describe: 'custom flag for generating spritesheet in hubs'
+    })
+    .options('customHeight', {
+      describe: 'custom height for css module spritesheet',
+      default: 0
+    })
+    .options('customWidth', {
+      describe: 'custom width for css module spritesheet',
+      default: 0
     })
     .check(function(argv){
       if(argv.algorithm !== 'binpacking' || !isNaN(Number(argv.width)) && !isNaN(Number(argv.height))){
@@ -192,6 +192,7 @@ function generate(files, options, callback) {
   options.prefix = options.hasOwnProperty('prefix') ? options.prefix : '';
   options.divisibleByTwo = options.hasOwnProperty('divisibleByTwo') ? options.divisibleByTwo : false;
   options.cssOrder = options.hasOwnProperty('cssOrder') ? options.cssOrder : null;
+  options.hubsFlag = options.hasOwnProperty('hubsFlag');
 
   files = files.map(function (item, index) {
     var resolvedItem = path.resolve(item);

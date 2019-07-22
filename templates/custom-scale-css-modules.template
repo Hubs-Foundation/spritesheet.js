@@ -3,7 +3,20 @@
     width: {{cssWidth}}px;
     height: {{cssHeight}}px;
     background: url("{{{spritesheetName}}}.png") -{{cssBackgroundPositionX}}px -{{cssBackgroundPositionY}}px;
-	background-size: {{cssBackgroundWidth}}px {{cssBackgroundHeight}}px;
+    background-size: {{cssBackgroundWidth}}px {{cssBackgroundHeight}}px;
 }
-
+:local(.{{{hoverCssName}}}){
+  @media (pointer: fine) {
+    width: {{hoverCssWidth}}px;
+    height: {{hoverCssHeight}}px;
+    background: url("{{{spritesheetName}}}.png") -{{hoverCssBackgroundPositionX}}px -{{cssBackgroundPositionY}}px;
+    background-size: {{hoverCssBackgroundWidth}}px {{hoverCssBackgroundHeight}}px;
+  }
+  @media (pointer: coarse) {
+    width: {{cssWidth}}px;
+    height: {{cssHeight}}px;
+    background: url("{{{spritesheetName}}}.png") -{{cssBackgroundPositionX}}px -{{cssBackgroundPositionY}}px;
+    background-size: {{cssBackgroundWidth}}px {{cssBackgroundHeight}}px;
+  }
+}
 {{/customCssFiles}}
