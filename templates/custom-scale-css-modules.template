@@ -9,7 +9,7 @@
   @media (pointer: fine) {
     width: {{hoverCssWidth}}px;
     height: {{hoverCssHeight}}px;
-    background: url("{{{spritesheetName}}}.png") -{{hoverCssBackgroundPositionX}}px -{{cssBackgroundPositionY}}px;
+    background: url("{{{spritesheetName}}}.png") -{{hoverCssBackgroundPositionX}}px -{{hoverCssBackgroundPositionY}}px;
     background-size: {{hoverCssBackgroundWidth}}px {{hoverCssBackgroundHeight}}px;
   }
   @media (pointer: coarse) {
