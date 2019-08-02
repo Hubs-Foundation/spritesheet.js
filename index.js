@@ -116,6 +116,14 @@ if (!module.parent) {
     .options('hubsFlag', {
       describe: 'custom flag for generating spritesheet in hubs'
     })
+    .options('customCanvasHeight', {
+      describe: 'custom canvas height',
+      default: 0
+    })
+    .options('customCanvasWidth', {
+      describe: 'custom canvas width',
+      default: 0
+    })
     .options('customHeight', {
       describe: 'custom height for css module spritesheet',
       default: 0
@@ -189,6 +197,8 @@ function generate(files, options, callback) {
   options.padding = options.hasOwnProperty('padding') ? parseInt(options.padding, 10) : 0;
   options.customHeight = options.hasOwnProperty('customHeight') ? parseInt(options.customHeight, 10) : 0;
   options.customWidth = options.hasOwnProperty('customWidth') ? parseInt(options.customWidth, 10) : 0;
+  options.customCanvasHeight = options.hasOwnProperty('customCanvasHeight') ? parseInt(options.customCanvasHeight, 10) : 0;
+  options.customCanvasWidth = options.hasOwnProperty('customCanvasWidth') ? parseInt(options.customCanvasWidth, 10) : 0;
   options.prefix = options.hasOwnProperty('prefix') ? options.prefix : '';
   options.divisibleByTwo = options.hasOwnProperty('divisibleByTwo') ? options.divisibleByTwo : false;
   options.cssOrder = options.hasOwnProperty('cssOrder') ? options.cssOrder : null;
