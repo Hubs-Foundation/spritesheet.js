@@ -146,7 +146,9 @@ if (!module.parent) {
     optimist.showHelp();
     return;
   }
-  generate(argv._, argv, function (err) {
+
+  const files = argv._[0].includes('*') ? argv._[0] : argv._;
+  generate(files, argv, function (err) {
     if (err) throw err;
     console.log('Spritesheet successfully generated');
   });
